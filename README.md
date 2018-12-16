@@ -11,25 +11,27 @@ To make this module work in Gladys, you need to :
 - First, have a Snips system working properly
 - Install the module
 - Without rebooting, just set these global parameter in "Param" view in the dashboard : 
-	- SNIPS_MQTT_URL => The URL of the MQTT broker used by Snips, for example : "mqtt://localhost:1883"
-        - SNIPS_WAKEWORDS => A list of <assistant name:gladys user id> seperated by semi colon, for example: "gladys_1:1;gladys_2:2"
-          Usefull for detecting who is speaking
+ - SNIPS_MQTT_URL => The URL of the MQTT broker used by Snips, for example : "mqtt://localhost:1883"
+ - SNIPS_WAKEWORDS => A list of <assistant name:gladys user id> seperated by semi colon, for example: "gladys_1:1;gladys_2:2" (Usefull for detecting who is speaking)
 - Reboot Gladys. In the logs you should see "Successfully connected to MQTT : YOUR_SERVER_URL" 
 
 ## Snips
 
 ### Setup system
 
-I recommand to install Snips with a Master and multiple Satellites in your room [multi device setup](https://docs.snips.ai/guides/raspberry-pi-guides/multi-device-setup-satellites)
-I also recommand to use [sam](https://docs.snips.ai/ressources/sam_reference) to manage your snips system.
+* I recommand to install Snips with a Master and multiple Satellites in your room [multi device setup](https://docs.snips.ai/guides/raspberry-pi-guides/multi-device-setup-satellites)
+* I also recommand to use [sam](https://docs.snips.ai/ressources/sam_reference) to manage your snips system.
 
 The mosquitto instance hosted by your master device will be the one Gladys will connect onto.
 
 ### Setup your assistant
-Once you get aworking Snips configuration, you need to create an account on [Snips console](https://console.snips.ai/) and you have to create your own assistant.
+
+Once you get a working Snips configuration, you need to create an account on [Snips console](https://console.snips.ai/) and you have to create your own assistant.
+
 Then, add Gladys application to your assistant.
 
 An application is like a Gladys module in Snips system. You can add application for meteo and it will be totally independant.
+
 In fact, eah application should handle a set of sentences for the application's purpose. 
 
 For Gladys app, I've decided to put in a signle app, all the sentences Gladys knows, it's like the Gladys brain.
@@ -60,4 +62,5 @@ Be carefull, due to a known bug on Snips, you have to re-create a directory each
 ## Support
 
 For english support, just fork Gladys application in Snips console and create your own english sentences and don't forget to set your language assistant.
+
 Be carefull when forking Gladys application because, as Jeedom did, we could have a lot of Gladys application in the console and I think it's not good for understanding
