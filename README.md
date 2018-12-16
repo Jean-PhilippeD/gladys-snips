@@ -11,7 +11,9 @@ To make this module work in Gladys, you need to :
 - First, have a Snips system working properly
 - Install the module
 - Without rebooting, just set these global parameter in "Param" view in the dashboard : 
-	- MQTT_SNIPS_URL => The URL of the MQTT broker used by Snips, for example : "mqtt://localhost:1883"
+	- SNIPS_MQTT_URL => The URL of the MQTT broker used by Snips, for example : "mqtt://localhost:1883"
+        - SNIPS_WAKEWORDS => A list of <assistant name:gladys user id> seperated by semi colon, for example: "gladys_1:1;gladys_2:2"
+          Usefull for detecting who is speaking
 - Reboot Gladys. In the logs you should see "Successfully connected to MQTT : YOUR_SERVER_URL" 
 
 ## Snips
@@ -23,7 +25,7 @@ I also recommand to use [sam](https://docs.snips.ai/ressources/sam_reference) to
 
 The mosquitto instance hosted by your master device will be the one Gladys will connect onto.
 
-### Setup your assistant
+### Setup your assistant
 Once you get aworking Snips configuration, you need to create an account on [Snips console](https://console.snips.ai/) and you have to create your own assistant.
 Then, add Gladys application to your assistant.
 
@@ -32,16 +34,16 @@ In fact, eah application should handle a set of sentences for the application's 
 
 For Gladys app, I've decided to put in a signle app, all the sentences Gladys knows, it's like the Gladys brain.
 
-!! Gladys application is built with French sentences
+>  Gladys application is built with French sentences
 
 The application does nothing alone, it just let Snips publish the parsed message on mosquitto and this Gladys module will consume it and push it to the brain classifier.
 
 Once you get an assistant with Gladys app installed, you need to install this assistant to your master device so that your snips system will become autonomous.
 
 Use sam on your management server (can be the Gladys RPI):
-* sam connect <your master device | I think it can be a satellite>
-* sam login (login / password of your snips console account)
-* sam update-assistant
+* `sam connect <your master device | I think it can be a satellite>`
+* `sam login (login / password of your snips console account)`
+* `sam update-assistant`
 
 ### Setup your hotword / wakeword
 
@@ -53,7 +55,7 @@ If you use multiple wakewords, add them to the config array in /etc/snips.toml
 
 
 Be carefull, due to a known bug on Snips, you have to re-create a directory each time you update your assistant:
-> mkdir /usr/share/snips/assistant/custom_hotword
+`mkdir /usr/share/snips/assistant/custom_hotword`
 
 ## Support
 
