@@ -1,0 +1,14 @@
+{
+  "name": "gladys-snips",
+  "version": "0.1.0",
+  "description": "Gladys hooks to connect to a MQTT broker and receive Snips voice to text data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jean-Philippe Danrée",
+  "license": "CC-BY-NC-SA-3.0",
+  "dependencies": {
+    "mqtt": "^1.10.0"
+  }
+}
