@@ -21,6 +21,7 @@ To make this module work in Gladys, you need to :
 
 * I recommand to install Snips with a Master and multiple Satellites in your room [multi device setup](https://docs.snips.ai/guides/raspberry-pi-guides/multi-device-setup-satellites)
 * I also recommand to use [sam](https://docs.snips.ai/ressources/sam_reference) to manage your snips system.
+* Do not forget to install [snips-injection](https://docs.snips.ai/guides/advanced-configuration/dynamic-vocabulary) so Gladys will be able to teach your rooms, devices...etc to snips.
 
 The mosquitto instance hosted by your master device will be the one Gladys will connect onto.
 
@@ -46,6 +47,8 @@ Use sam on your management server (can be the Gladys RPI):
 * `sam connect <your master device | I think it can be a satellite>`
 * `sam login (login / password of your snips console account)`
 * `sam update-assistant`
+
+`Each time you will update your assistant, you'll need to run the configure action on this module because it lost the previous dynamic injection.
 
 ### Setup your hotword / wakeword
 
