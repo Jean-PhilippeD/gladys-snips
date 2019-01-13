@@ -19,10 +19,14 @@ module.exports = function(sails){
                 exec: exec,
                 routes: {
                     before: {
-                        'get /snips/satellites': (req, res, next) => sails.hooks.policies.middleware.checktoken(req, res, next)
+                        'get /snips/satellites': (req, res, next) => sails.hooks.policies.middleware.checktoken(req, res, next),
+                        'get /snips/known/slots': (req, res, next) => sails.hooks.policies.middleware.checktoken(req, res, next),
+                        'put /snips/inject/:slot': (req, res, next) => sails.hooks.policies.middleware.checktoken(req, res, next)
                     },
                     after: {
                        'get /snips/satellites': SnipsController.getSatellites,
+                       'get /snips/known/slots': SnipsController.getCachedSlots,
+                       'put /snips/inject/:slot': SnipsController.inject
                     }
                 }
 	};

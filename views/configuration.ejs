@@ -3,68 +3,101 @@
 <script src="/hooks/snips/js/snips.service.js"></script>
 
 <div data-ng-controller="SnipsCtrl as vm">
-    <div class="box skin-box box-default no-border ng-cloak">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class="box skin-box box-default no-border ng-cloak">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ 'CONFIGURE_MQTT_URL' | translate }}</h3>
+          <h3 class="box-title">{{ 'CONFIGURE_MQTT_URL' | translate }}</h3>
         </div>
         <div class="box-body">
-            <input type="text" class="form-control ng-pristine ng-untouched ng-valid" ng-model="vm.params['SNIPS_MQTT_URL']" ng-change="vm.updateBrokerUrl();" placeholder="{{ 'DEFAULT_MQTT_URL' | translate }}">
+          <input type="text" class="form-control ng-pristine ng-untouched ng-valid" ng-model="vm.params['SNIPS_MQTT_URL']" ng-change="vm.updateBrokerUrl();" placeholder="{{ 'DEFAULT_MQTT_URL' | translate }}">
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="box skin-box box-default no-border ng-cloak">
-        <div class="box-header with-border">
-            <h3 class="box-title">{{ 'CONFIGURE_SATELLITE' | translate }}</h3>
-        </div>
-        <div class="box-body">
-            <table id="feedback" class="table table-bordered">
-                <tr>
-                    <th>{{ 'SITEID' | translate }}</th>
-                    <th>{{ 'FEEDBACK' | translate }}</th>
-                    <th>{{ 'ACTION' | translate }}</th>
-                </tr>
-                <tr ng-repeat="satellite in vm.satellites">
-                    <td>{{ satellite.room }}</td>
-                    <td>
-                        <div class="toogle" ng-click="vm.toggleFeedback(satellite);">
-                            <input type="checkbox" ng-model="satellite.feedback.value" ng-true-value="1" ng-false-value="0" class="toogle-checkbox toogle-blue ng-pristine ng-untouched ng-valid ng-not-empty">
-                            <label class="toogle-label" for="mytoogle"></label>
-                        </div>
-                    </td>
-                    <td>
-                        <button ng-click="vm.deleteSatellite(satellite.id)" class="btn btn-flat btn-xs btn-danger"><i class="fa fa-trash"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <select name="selectRoom" id="selectRoom" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" ng-options="room.name for room in vm.rooms track by room.id" ng-model="vm.newSatellite.room"><option label="----" value="null">----</option>
-                    </td>
-                    <td></td>
-                    <td>
-                        <button ng-click="vm.addSatellite(vm.newSatellite)" class="btn btn-flat btn-xs btn-success"><i class="fa fa-floppy-o"></i></button>
-                    </td>
-            </table>
-        </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class="box skin-box box-default no-border ng-cloak">
+          <div class="box-header with-border">
+              <h3 class="box-title">{{ 'CONFIGURE_SATELLITE' | translate }}</h3>
+          </div>
+          <div class="box-body">
+              <table id="feedback" class="table table-bordered">
+                  <tr>
+                      <th>{{ 'SITEID' | translate }}</th>
+                      <th>{{ 'FEEDBACK' | translate }}</th>
+                      <th>{{ 'ACTION' | translate }}</th>
+                  </tr>
+                  <tr ng-repeat="satellite in vm.satellites">
+                      <td>{{ satellite.room }}</td>
+                      <td>
+                          <div class="toogle" ng-click="vm.toggleFeedback(satellite);">
+                              <input type="checkbox" ng-model="satellite.feedback.value" ng-true-value="1" ng-false-value="0" class="toogle-checkbox toogle-blue ng-pristine ng-untouched ng-valid ng-not-empty">
+                              <label class="toogle-label" for="mytoogle"></label>
+                          </div>
+                      </td>
+                      <td>
+                          <button ng-click="vm.deleteSatellite(satellite.id)" class="btn btn-flat btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <select name="selectRoom" id="selectRoom" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" ng-options="room.name for room in vm.rooms track by room.id" ng-model="vm.newSatellite.room"><option label="----" value="null">----</option>
+                      </td>
+                      <td></td>
+                      <td>
+                          <button ng-click="vm.addSatellite(vm.newSatellite)" class="btn btn-flat btn-xs btn-success"><i class="fa fa-floppy-o"></i></button>
+                      </td>
+              </table>
+          </div>
+      </div>
     </div>
-
-    <div class="box skin-box box-default no-border ng-cloak">
-        <div class="box-header with-border">
-            <h3 class="box-title">{{ 'CONFIGURE_WAKEWORDS' | translate }}</h3>
-        </div>
-        <div class="box-body">
-            <table id="feedback" class="table table-bordered">
-                <tr>
-                    <th>{{ 'USER' | translate }}</th>
-                    <th>{{ 'WAKEWORD' | translate }}</th>
-                </tr>
-                <tr ng-repeat="wakeword in vm.wakewords">
-                    <td>{{ wakeword.user.name }}</td>
-                    <td>
-                      <input type="text" class="form-control ng-pristine ng-untouched ng-valid" ng-model="wakeword.wakeword" ng-change="vm.updateWakeword(wakeword);" data-toggle="tooltip" data-original-title="{{ 'WAKEWORD_TOOLTIP' | translate }}">
-                    </td>
-                </tr>
-            </table>
-        </div>
+  
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class="box skin-box box-default no-border ng-cloak">
+          <div class="box-header with-border">
+              <h3 class="box-title">{{ 'CONFIGURE_WAKEWORDS' | translate }}</h3>
+          </div>
+          <div class="box-body">
+              <table id="feedback" class="table table-bordered">
+                  <tr>
+                      <th>{{ 'USER' | translate }}</th>
+                      <th>{{ 'WAKEWORD' | translate }}</th>
+                  </tr>
+                  <tr ng-repeat="wakeword in vm.wakewords">
+                      <td>{{ wakeword.user.name }}</td>
+                      <td>
+                        <input type="text" class="form-control ng-pristine ng-untouched ng-valid" ng-model="wakeword.wakeword" ng-change="vm.updateWakeword(wakeword);" data-toggle="tooltip" data-original-title="{{ 'WAKEWORD_TOOLTIP' | translate }}">
+                      </td>
+                  </tr>
+              </table>
+          </div>
+      </div>
     </div>
+  </div>
 
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h3 class="box-title">{{ 'MANAGE_SLOTS' | translate }}</h3>
+    </div>
+    <div ng-repeat="(key, values) in vm.slots" class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+      <table id="{{ 'slot-' + key }}" class="table table-bordered">
+        <tr>
+          <th colspan=2>{{ key }}</th>
+        </tr>
+        <tr ng-repeat="value in values">
+          <td><input type="text" class="form-control ng-pristine ng-untouched ng-valid" ng-model="value"</td>
+          <td><button ng-click="vm.deleteSlotValue(key, value)" class="btn btn-flat btn-xs btn-warning">-</button></td>
+        </tr>
+        <tr>
+            <td><input type="text" class="form-control ng-pristine ng-untouched ng-valid" ng-model="vm.newValue[key]"></td>
+            <td><button ng-click="vm.addSlotValue(key, vm.newValue[key])" class="btn btn-flat btn-xs btn-success">+</button></td>
+        </tr>
+        <tr>
+          <td colspan=2><button ng-click="vm.inject(key)" class="btn btn-flat btn-xs btn-success">{{ 'INJECT' | translate }}</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>

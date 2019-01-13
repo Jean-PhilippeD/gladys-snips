@@ -1,6 +1,6 @@
 {
   "name": "gladys-snips",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Gladys hooks to connect to a MQTT broker and receive Snips voice to text data",
   "main": "index.js",
   "scripts": {

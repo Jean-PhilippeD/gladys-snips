@@ -1,4 +1,5 @@
 var translationsEN = {
+    INJECT: 'Inject into snips model',
     CONFIGURE_SATELLITE: 'Configure satellites',
     CONFIGURE_WAKEWORDS: 'Configure wakewords',
     SITEID: 'Site Id',
@@ -9,10 +10,12 @@ var translationsEN = {
     USER: 'User',
     WAKEWORD_TOOLTIP: 'Wakewords can be generic, or specific for each user, this way, snips can recognize users',
     CONFIGURE_MQTT_URL: 'MQTT Broker address',
-    DEFAULT_MQTT_URL: 'mqtt://localhost:1883'
+    DEFAULT_MQTT_URL: 'mqtt://localhost:1883',
+    MANAGE_SLOTS: 'Manage known slots values'
 }
 
 var translationsFR = {
+    INJECT: 'Injecter dans le model Snips',
     CONFIGURE_SATELLITE: 'Configurer les satellites',
     CONFIGURE_WAKEWORDS: 'Configurer les mots de déclenchement de l\'écoute',
     SITEID: 'Pièce ou est situé le satellite',
@@ -23,7 +26,8 @@ var translationsFR = {
     USER: 'Utilisateur',
     WAKEWORD_TOOLTIP: 'Les mots de déclenchements peuvent être propre à chaque utilisateur, permettant ainsi la reconnaissance d\'utilisateur',
     CONFIGURE_MQTT_URL: 'Addresse du broker MQTT',
-    DEFAULT_MQTT_URL: 'mqtt://localhost:1883'
+    DEFAULT_MQTT_URL: 'mqtt://localhost:1883',
+    MANAGE_SLOTS: 'Gérer les données connues par entités'
 }
 
 angular

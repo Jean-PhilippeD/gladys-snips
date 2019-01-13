@@ -1,5 +1,5 @@
 (function () {
-    'use strict';
+   'use strict';
 
     angular
         .module('gladys')
@@ -15,10 +15,14 @@
         vm.toggleFeedback = toggleFeedback;
         vm.updateWakeword = updateWakeword;
         vm.updateBrokerUrl = updateBrokerUrl;
+        vm.deleteSlotValue = deleteSlotValue;
+        vm.addSlotValue = addSlotValue;
+        vm.inject = inject;
 
         vm.satellites = [];
         vm.rooms = [];
         vm.wakewords = [];
+        vm.newValue = {};
 
         var wakewords = [];
 
@@ -34,6 +38,29 @@
             getSatellites();
             getRooms();
             initNewSatellite();
+            getCachedSlots();
+        }
+
+        function inject(key) {
+          return snipsService.inject(key, vm.slots[key]);
+        }
+
+        function deleteSlotValue(key, value) {
+          vm.slots[key].splice(vm.slots[key].indexOf(value),1);
+        }
+
+        function addSlotValue(key, value) {
+          if(vm.slots[key].indexOf(value) === -1) {
+            vm.slots[key].push(vm.newValue[key]);
+          }
+          vm.newValue[key] = '';
+        }
+
+        function getCachedSlots() {
+          return snipsService.getCachesSlots()
+            .then(function(slots) {
+              vm.slots = slots.data;
+          });
         }
 
         function initNewSatellite() {
