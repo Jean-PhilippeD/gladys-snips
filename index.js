@@ -21,12 +21,16 @@ module.exports = function(sails){
                     before: {
                         'get /snips/satellites': (req, res, next) => sails.hooks.policies.middleware.checktoken(req, res, next),
                         'get /snips/known/slots': (req, res, next) => sails.hooks.policies.middleware.checktoken(req, res, next),
-                        'put /snips/inject/:slot': (req, res, next) => sails.hooks.policies.middleware.checktoken(req, res, next)
+                        'put /snips/inject': (req, res, next) => sails.hooks.policies.middleware.checktoken(req, res, next),
+                        'put /snips/slot/:slot/add/value': (req, res, next) => sails.hooks.policies.middleware.checktoken(req, res, next),
+                        'put /snips/slot/:slot/delete/value': (req, res, next) => sails.hooks.policies.middleware.checktoken(req, res, next)
                     },
                     after: {
                        'get /snips/satellites': SnipsController.getSatellites,
                        'get /snips/known/slots': SnipsController.getCachedSlots,
-                       'put /snips/inject/:slot': SnipsController.inject
+                       'put /snips/inject': SnipsController.inject,
+                       'put /snips/slot/:slot/add/value': SnipsController.addSlotValue,
+                       'put /snips/slot/:slot/delete/value': SnipsController.deleteSlotValue
                     }
                 }
 	};

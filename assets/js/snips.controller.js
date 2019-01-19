@@ -41,17 +41,23 @@
             getCachedSlots();
         }
 
-        function inject(key) {
-          return snipsService.inject(key, vm.slots[key]);
+        function inject() {
+          return snipsService.inject();
         }
 
         function deleteSlotValue(key, value) {
-          vm.slots[key].splice(vm.slots[key].indexOf(value),1);
+          snipsService.deleteSlotValue(key, value)
+            .then(function() {
+              vm.slots[key].splice(vm.slots[key].indexOf(value),1);
+          });
         }
 
         function addSlotValue(key, value) {
           if(vm.slots[key].indexOf(value) === -1) {
-            vm.slots[key].push(vm.newValue[key]);
+            snipsService.addSlotValue(key, value)
+              .then(function() {
+                vm.slots[key].push(vm.newValue[key]);
+            })
           }
           vm.newValue[key] = '';
         }

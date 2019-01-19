@@ -12,7 +12,9 @@
         var service = {
             getSatellites: getSatellites,
             getCachesSlots: getCachesSlots,
-            inject: inject
+            inject: inject,
+            addSlotValue: addSlotValue,
+            delelteSlotValue: deleteSlotValue
         };
 
         return service;
@@ -25,8 +27,16 @@
             return $http({method: 'GET', url: '/snips/known/slots'});
         }
 
-        function inject(key, data) {
-            return $http({method: 'PUT', url: '/snips/inject/' + key, data: data});
+        function inject() {
+            return $http({method: 'PUT', url: '/snips/inject'});
+        }
+
+        function addSlotValue(slot, value) {
+            return $http({method: 'PUT', url: '/snips/slot/' + slot + '/add', data: [value]});
+        }
+
+        function deleteSlotValue(slot, value) {
+            return $http({method: 'DELETE', url: '/snips/slot/' + slot + '/delete', data: value});
         }
 
     }

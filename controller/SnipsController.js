@@ -19,9 +19,23 @@ module.exports = {
     });
   },
 
-  inject: function(req, res,next) {
-    injection.randomSlot({key: req.params.slot, values: req.body})
+  inject: function(req, res, next) {
+    injection.knownSlots()
       .then((result) => {
+        return res.json();
+    });
+  },
+
+  addSlotValue: function(req, res, next) {
+    shared.cacheSlot({slot: req.params.slot, value: req.body })
+      .then(() => {
+        return res.json();
+    });
+  },
+
+  deleteSlotValue: function(req, res, next) {
+    shared.uncacheSlotEntity({slot: req.params.slot, value: req.body})
+      .then(() => {
         return res.json();
     });
   }
