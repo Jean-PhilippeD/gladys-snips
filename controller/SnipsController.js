@@ -27,7 +27,12 @@ module.exports = {
   },
 
   addSlotValue: function(req, res, next) {
-    shared.cacheSlot({slot: req.params.slot, value: req.body })
+    data = {};
+    data[req.params.slot] = req.body;
+    shared.cacheSlots(data)
+      .then(() => {
+        return injection.inject(data);
+    })
       .then(() => {
         return res.json();
     });

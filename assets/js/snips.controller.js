@@ -57,9 +57,9 @@
             snipsService.addSlotValue(key, value)
               .then(function() {
                 vm.slots[key].push(vm.newValue[key]);
-            })
+                vm.newValue[key] = '';
+            });
           }
-          vm.newValue[key] = '';
         }
 
         function getCachedSlots() {

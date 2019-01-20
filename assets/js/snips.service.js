@@ -32,11 +32,11 @@
         }
 
         function addSlotValue(slot, value) {
-            return $http({method: 'PUT', url: '/snips/slot/' + slot + '/add', data: [value]});
+            return $http({method: 'PUT', url: '/snips/slot/' + slot + '/add/value', data: [value]});
         }
 
         function deleteSlotValue(slot, value) {
-            return $http({method: 'DELETE', url: '/snips/slot/' + slot + '/delete', data: value});
+            return $http({method: 'DELETE', url: '/snips/slot/' + slot + '/delete/value', data: value});
         }
 
     }
