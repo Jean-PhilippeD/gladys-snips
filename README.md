@@ -6,14 +6,12 @@ Need Gladys version >= 3.11.7
 
 ## Documentation
 
-To make this module work in Gladys, you need to :
+To make this module work in Gladys, you need to have a working snips system.
 
-- First, have a Snips system working properly
 - Install the module
-- Without rebooting, just set these global parameter in "Param" view in the dashboard : 
- - SNIPS_MQTT_URL => The URL of the MQTT broker used by Snips, for example : "mqtt://localhost:1883"
- - SNIPS_WAKEWORDS => A list of <assistant name:gladys user id> seperated by semi colon, for example: "gladys_1:1;gladys_2:2" (Usefull for detecting who is speaking)
-- Reboot Gladys. In the logs you should see "Successfully connected to MQTT : YOUR_SERVER_URL" 
+- Reboot Gladys
+- Go to the configuration panel and fill the forms
+- Reboot Gladys. In the logs you should see "Successfully connected to MQTT : YOUR_SERVER_URL"
 
 ## Snips
 
@@ -65,5 +63,3 @@ Be carefull, due to a known bug on Snips, you have to re-create a directory each
 ## Support
 
 For english support, just fork Gladys application in Snips console and create your own english sentences and don't forget to set your language assistant.
-
-Be carefull when forking Gladys application because, as Jeedom did, we could have a lot of Gladys application in the console and I think it's not good for understanding
