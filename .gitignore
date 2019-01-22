@@ -42,3 +42,7 @@ nbproject
 typings
 jsconfig.json
 *.swp
+
+# ignore cache file
+
+cache/*
