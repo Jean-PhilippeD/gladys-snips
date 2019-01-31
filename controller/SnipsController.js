@@ -39,7 +39,7 @@ module.exports = {
   },
 
   deleteSlotValue: function(req, res, next) {
-    shared.uncacheSlotEntity({slot: req.params.slot, value: req.body})
+    shared.uncacheSlotEntity({slot: req.params.slot, value: req.query.value})
       .then(() => {
         return res.json();
     });

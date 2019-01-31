@@ -36,7 +36,7 @@
         }
 
         function deleteSlotValue(slot, value) {
-            return $http({method: 'DELETE', url: '/snips/slot/' + slot + '/delete/value', data: value});
+            return $http({method: 'DELETE', url: '/snips/slot/' + slot + '/delete/value?value=' + value});
         }
 
     }
