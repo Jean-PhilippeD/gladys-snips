@@ -14,7 +14,7 @@
             getCachesSlots: getCachesSlots,
             inject: inject,
             addSlotValue: addSlotValue,
-            delelteSlotValue: deleteSlotValue
+            deleteSlotValue: deleteSlotValue
         };
 
         return service;

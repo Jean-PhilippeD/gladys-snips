@@ -100,7 +100,7 @@
     </div>
     <div class="col-xs-12">
       <blank ng-repeat-start="value in values">&nbsp;</blank>
-      <span class="label label-info" style="padding-top: 0.8px; padding-bottom: 0.8px" ng-repeat-end>{{ value }}&nbsp;&nbsp;&nbsp;<i class="fa fa-times" ng-click="vm.deleteSlotValue(key, value)"></i></span>
+      <span class="label label-info" style="padding-top: 0.8px; padding-bottom: 0.8px" ng-repeat-end>{{ value }}&nbsp;&nbsp;&nbsp;<i class="fa fa-times" style="cursor: pointer;" ng-click="vm.deleteSlotValue(key, value)"></i></span>
     </div>
   </div>
   <hr ng-repeat-end>
